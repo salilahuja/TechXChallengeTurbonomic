@@ -1,0 +1,62 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "turbo-actions prod",
+      "description": "Turbo No Brainer Actions",
+      "version": "1.0"
+    },
+    "servers": [
+      {
+        "url": "https://{host}/a/turbo-actions/prod",
+        "variables": {
+          "host": {
+            "default": "pliant.demo.turbonomic.com",
+            "description": "Hostname of the API server"
+          }
+        }
+      }
+    ],
+    "security": [
+      {
+        "ApiKey-Query-api_key": []
+      }
+    ],
+    "paths": {
+      "/turbo_actions_nobrainers": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RetrieveTurboActionsNobrainersResponse200"
+                  }
+                }
+              }
+            }
+          },
+          "operationId": "RetrieveTurboActionsNobrainers"
+        }
+      }
+    },
+    "components": {
+      "securitySchemes": {
+        "ApiKey-Query-api_key": {
+          "type": "apiKey",
+          "name": "api_key",
+          "in": "query"
+        }
+      },
+      "schemas": {
+        "RetrieveTurboActionsNobrainersResponse200": {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
